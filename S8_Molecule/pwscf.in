@@ -1,0 +1,57 @@
+ &CONTROL
+ calculation = 'relax'
+ title = 'pwscf'
+ restart_mode = 'from_scratch'
+ outdir = './'
+ prefix = 'pwscf'
+ wf_collect = .true.
+ pseudo_dir = './'
+ etot_conv_thr = 1.0D-6
+ forc_conv_thr = 1.0D-6
+ tstress = .true.
+ tprnfor = .true.
+ /
+ &SYSTEM
+ ibrav = 0
+ nat=           8
+ ntyp=           1
+ ecutwfc = 50
+ ecutrho = 400
+ occupations = 'smearing'
+ degauss = 0.001
+ smearing = 'gaussian'
+ /
+ &ELECTRONS
+ electron_maxstep = 250
+ conv_thr = 1.0D-10
+ diagonalization = 'cg'
+ /
+  &IONS
+ ion_dynamics = 'bfgs'
+ pot_extrapolation = 'second_order'
+ wfc_extrapolation = 'second_order'
+ /
+ &CELL
+ cell_dynamics = 'bfgs'
+ press_conv_thr = 0.1
+ /
+ ATOMIC_SPECIES
+ S  ATOMIC_MASS    S_PSEUdo
+ 
+ K_POINTS { automatic }
+   1   1   1   0.000000   0.000000   0.000000
+ 
+ CELL_PARAMETERS (angstrom)
+   20.0000000000    0.0000000000    0.0000000000
+    0.0000000000   20.0000000000    0.0000000000
+    0.0000000000    0.0000000000   20.0000000000
+ 
+ ATOMIC_POSITIONS (crystal)
+  S    0.4008207791    0.5984142206    0.4878267579
+  S    0.4898075965    0.6309532142    0.5285135391
+  S    0.5682312805    0.5975462063    0.4704975156
+  S    0.6070912726    0.5114160434    0.5117768884
+  S    0.5666678036    0.4293739953    0.4641686386
+  S    0.4876176420    0.3931390270    0.5195800708
+  S    0.3992746344    0.4302433837    0.4814945479
+  S    0.3703320978    0.5126599376    0.5362863329
